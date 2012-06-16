@@ -84,9 +84,6 @@ endif
 if HAVE_PHP
 SUBDIRS += php
 endif
-if HAVE_GOBJECT
-SUBDIRS += gobject
-endif
 
 # Unconditional because nothing is built yet.
 SUBDIRS += csharp
