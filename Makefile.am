@@ -84,9 +84,6 @@ endif
 if HAVE_PHP
 SUBDIRS += php
 endif
-if HAVE_ERLANG
-SUBDIRS += erlang erlang/examples
-endif
 if HAVE_GOBJECT
 SUBDIRS += gobject
 endif
