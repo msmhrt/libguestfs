@@ -176,7 +176,7 @@ dnl Check sizeof long.
 AC_CHECK_SIZEOF([long])
 
 dnl Check if dirent (readdir) supports d_type member.
-AC_STRUCT_DIRENT_D_TYPE
+AC_DEFINE([HAVE_STRUCT_DIRENT_D_TYPE],[1],[Define to 1 if 'struct dirent' has member 'd_type'])
 
 dnl Check if stat has the required fields.
 AC_STRUCT_ST_BLOCKS
