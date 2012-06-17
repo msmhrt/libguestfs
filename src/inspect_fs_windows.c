@@ -46,6 +46,16 @@
 
 #if defined(HAVE_HIVEX)
 
+#if __BYTE_ORDER == __LITTLE_ENDIAN
+#ifndef le64toh
+#define le64toh(x) (x)
+#endif
+#else /* __BYTE_ORDER == __BIG_ENDIAN */
+#ifndef le64toh
+#define le64toh(x) bswap_64 (x)
+#endif
+#endif
+
 /* Compile all the regular expressions once when the shared library is
  * loaded.  PCRE is thread safe so we're supposedly OK here if
  * multiple threads call into the libguestfs API functions below
