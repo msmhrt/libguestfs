@@ -81,9 +81,6 @@ endif
 if HAVE_HASKELL
 SUBDIRS += haskell
 endif
-if HAVE_PHP
-SUBDIRS += php
-endif
 
 # Unconditional because nothing is built yet.
 SUBDIRS += csharp
