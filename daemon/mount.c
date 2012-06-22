@@ -216,6 +216,9 @@ do_umount (const char *pathordevice)
 
   free (err);
 
+  /* RHEL 5 only. */
+  sleep (1);
+
   return 0;
 }
 
@@ -375,6 +378,9 @@ do_umount_all (void)
   }
 
   free_stringslen (mounts.argv, mounts.size);
+
+  /* RHEL 5 only. */
+  sleep (1);
 
   return 0;
 }
