@@ -38,7 +38,7 @@ EXTRA_DIST = \
 
 # This is 'check_DATA' because we don't need it until 'make check'
 # time and we need the tools we have built in order to make it.
-check_DATA = debian.img fedora.img fedora-md1.img fedora-md2.img ubuntu.img windows.img
+check_DATA = debian.img fedora.img ubuntu.img windows.img
 
 CLEANFILES = $(check_DATA) stamp-fedora-md.img
 
@@ -50,19 +50,6 @@ fedora.img: guest-aux/make-fedora-img.pl \
 	SRCDIR=$(srcdir) \
 	LAYOUT=partitions \
 	../../run --test $<
-
-# Make a (dummy) Fedora image using md devices
-fedora-md1.img fedora-md2.img: stamp-fedora-md.img
-
-stamp-fedora-md.img: guest-aux/make-fedora-img.pl \
-		guest-aux/fedora-name.db \
-		guest-aux/fedora-packages.db
-	rm -f $@
-	TMPDIR=$(top_builddir) \
-	SRCDIR=$(srcdir) \
-	LAYOUT=partitions-md \
-	../../run --test $<
-	touch $@
 
 guest-aux/fedora-name.db: guest-aux/fedora-name.db.txt
 	rm -f $@ $@-t
